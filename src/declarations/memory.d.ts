@@ -1,9 +1,13 @@
 interface Memory {
-	Empire: {};
-    creeps: { [name: string]: CreepMemory; };
+	Empire: { [name: string]: RoomMemory};
+    creeps: { [name: string]: CreepMemory };
 }
 
 interface CreepMemory {
 	role: string;
 	working: boolean;
+}
+
+interface RoomMemory{
+
 }

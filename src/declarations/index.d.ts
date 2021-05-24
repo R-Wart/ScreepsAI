@@ -20,6 +20,7 @@ interface ICache {
 
 interface IEmpire{
     cache: ICache;
+    rooms: {[roomName: string]: any};
 
 	build(): void;
 
