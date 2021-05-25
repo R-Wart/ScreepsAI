@@ -1,6 +1,12 @@
 interface Memory {
-	Empire: { [name: string]: RoomMemory};
-    creeps: { [name: string]: CreepMemory };
+	Empire: {[name: string]: ColonyMemory};
+	Colonies: {[name: string]: ColonyMemory};
+    creeps: {[name: string]: CreepMemory};
+}
+
+interface ColonyMemory {
+	id: number;
+	room: {[name: string]: RoomMemory};
 }
 
 interface CreepMemory {
@@ -9,5 +15,6 @@ interface CreepMemory {
 }
 
 interface RoomMemory{
+	sources: Source[];
 
 }

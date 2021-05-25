@@ -1,26 +1,31 @@
 import { RoomManager } from 'RoomManager';
+import {ColonyManager} from './ColonyManager';
 import {GameCache} from './utils/caching';
 
-export default class EmpireManager implements IEmpire{
+export default class EmpireManager implements IEmpireManager{
     cache: ICache;
-    rooms: {[roomName: string]: RoomManager};
+    Colonies: {[id: string]: ColonyManager};
 
     constructor(){
         this.cache = new GameCache();
-        this.rooms = {};
+        this.Colonies = {}
     }
 
-    private registerRooms(): void{
+    private registerColony(): void{
         for (let name in Game.rooms) {
-			this.rooms[name] = new RoomManager(name)
-            if(!Memory.Empire[name]){
-                Memory.Empire[name] = {}
-            }
+            let controller = Game.rooms[name].controller;
+            let colonyId: number = 1;
+
+            if (controller && controller.my) {
+                this.Colonies[colonyId] = new ColonyManager(colonyId, name);
+			}
+
+            colonyId++;
 		}
     }
 
     build(): void{
-        this.registerRooms();
+        this.registerColony();
         this.cache.build();
     }
 
@@ -29,14 +34,14 @@ export default class EmpireManager implements IEmpire{
     }
 
     init(): void{
-        for (let roomName in this.rooms) {
-			this.rooms[roomName].init();
+        for (let colonyId in this.Colonies) {
+			this.Colonies[colonyId].init();
 		}
     }
 
     run(): void{
-        for (let roomName in this.rooms) {
-			this.rooms[roomName].run();
+        for (let colonyId in this.Colonies) {
+			this.Colonies[colonyId].run();
 		}
     }
 }

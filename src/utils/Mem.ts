@@ -3,6 +3,10 @@ export class Mem{
         if (!Memory.Empire) {
 			Memory.Empire = {};
 		}
+
+		if (!Memory.Colonies) {
+			Memory.Colonies = {};
+		}
     }
 
     static cleanCreeps() {

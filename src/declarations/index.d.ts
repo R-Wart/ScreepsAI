@@ -2,7 +2,7 @@ declare var global: any;
 
 declare namespace NodeJS {
 	interface Global {
-		Empire: IEmpire;
+		Empire: IEmpireManager;
 	}
 }
 
@@ -18,9 +18,9 @@ interface ICache {
 	rebuild(): void;
 }
 
-interface IEmpire{
+interface IEmpireManager{
     cache: ICache;
-    rooms: {[roomName: string]: any};
+    Colonies: {[id: string]: any};
 
 	build(): void;
 
@@ -31,4 +31,4 @@ interface IEmpire{
 	run(): void;
 }
 
-declare var Empire: IEmpire;
+declare var Empire: IEmpireManager;

@@ -6,7 +6,6 @@ export class RoomManager{
     name: string;
     room: Room;
 
-
     constructor(roomName: string){
         this.name = roomName;
         this.room = Game.rooms[roomName];
