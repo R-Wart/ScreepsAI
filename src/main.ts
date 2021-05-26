@@ -1,3 +1,7 @@
+'use strict';
+
+import './prototypes/prototypes_Room';
+
 import { ErrorMapper } from 'utils/ErrorMapper';
 import {Mem} from 'utils/Mem';
 import EmpireManager from 'EmpireManager';
