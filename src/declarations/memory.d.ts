@@ -6,7 +6,7 @@ interface Memory {
 
 interface ColonyMemory {
 	id: number;
-	room: {[name: string]: RoomMemory};
+	rooms: {[name: string]: RoomMemory};
 }
 
 interface CreepMemory {

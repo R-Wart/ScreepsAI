@@ -12,6 +12,7 @@ export default class EmpireManager implements IEmpireManager{
     }
 
     private registerColony(): void{
+
         for (let name in Game.rooms) {
             let controller = Game.rooms[name].controller;
             let colonyId: number = 1;
@@ -19,7 +20,6 @@ export default class EmpireManager implements IEmpireManager{
             if (controller && controller.my) {
                 this.Colonies[colonyId] = new ColonyManager(colonyId, name);
 			}
-
             colonyId++;
 		}
     }
