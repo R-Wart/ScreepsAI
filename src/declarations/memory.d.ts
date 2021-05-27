@@ -10,6 +10,7 @@ interface ColonyMemory {
 }
 
 interface CreepMemory {
+	colony: string;
 	role: string;
 	working: boolean;
 }
